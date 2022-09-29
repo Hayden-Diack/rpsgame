@@ -15,19 +15,21 @@ function getComputerChoice(compChoice) {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    // main computer function
-    if (computerSelection == "rock") {
-        console.log("Draw!")
-        return "Draw!";
-    }
-    else if (computerSelection == "paper") {
-        console.log("You lose! Paper beats Rock");
-        return "You lose!";
-    }
-    else if (computerSelection == "scissors") {
-        console.log("You Win! Rock beats Scissors");
-        return "You Win!";
+for (let i = 0; i < 5; i++) {
+    function playRound(playerSelection, computerSelection) {
+        // main computer function
+        if (computerSelection == "rock") {
+            console.log("Draw!")
+            return "Draw!";
+        }
+        else if (computerSelection == "paper") {
+            console.log("You lose! Paper beats Rock");
+            return "You lose!";
+        }
+        else if (computerSelection == "scissors") {
+            console.log("You Win! Rock beats Scissors");
+            return "You Win!";
+        }
     }
 }
 
