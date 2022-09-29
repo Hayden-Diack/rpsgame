@@ -1,13 +1,26 @@
 function getComputerChoice(compChoice) {
+    // generate computer entries
     let choiceNum = Math.floor(Math.random()*3) + 1;
-    if (choiceNum == 1) {
-        compChoice = "rock";
-    } else if (choiceNum == 2) {
-        compChoice == "paper";
-    } else if (choiceNum == 3) {
-        compChoice == "scissors";
+    if (choiceNum == "1") {
+        console.log(choiceNum);
+        return "rock";
     }
-    console.log(choiceNum);
-    return choiceNum;
+    else if (choiceNum == "2") {
+        console.log(choiceNum);
+        return "paper";
+    }
+    else { 
+        console.log(choiceNum);
+        return "scissors";
+    }
 }
 
+function playRound(playerSelection, computerSelection) {
+    // main computer function
+    if (computerSelection == "rock") {
+        console.log("Draw!")
+    }
+}
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
