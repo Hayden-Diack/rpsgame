@@ -75,6 +75,34 @@ function playRound(playerSelection, computerSelection) {
             return;
         }
     }
+    // if player chooses scissors
+    else if (playerSelectionLowercase === "scissors") {
+        if (computerSelection === "rock") {
+            console.log("LOSE!");
+            computerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else if (computerSelection === "paper") {
+            console.log("WIN!");
+            playerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else {
+            console.log("DRAW!");
+            playerScore++;
+            computerScore+;
+            game(playerScore, computerScore);
+            return;
+        }
+    }
+    // if player inputs something silly
+    else {
+        console.log("Invalid Entry, Please try again.");
+        game(playerScore, computerScore);
+        return;
+    }
 }
 
 function game(playerScore, computerScore) {
