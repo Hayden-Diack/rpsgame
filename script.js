@@ -7,7 +7,7 @@ let gamesPlayed = 0;
 
 
 
-function getComputerChoice(compChoice) {
+function getComputerChoice() {
     // generate computer entries
     let choiceNum = Math.floor(Math.random()*3) + 1;
     if (choiceNum == "1") {
@@ -35,13 +35,13 @@ function playRound(playerSelection) {
             playerScore++;
             computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "DRAW!";
         }
         else if (computerSelection === "paper") {
             console.log("LOSE!");
             computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "LOSE!";
         }
         else {
             console.log("WIN!");
@@ -56,14 +56,14 @@ function playRound(playerSelection) {
             console.log("WIN!");
             playerScore++;
             game(playerScore, computerScore);
-            return;
+            return "WIN!";
         }
         else if (computerSelection === "paper") {
             console.log("DRAW!");
             playerScore++;
             computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "DRAW!";
         }
         else {
             console.log("LOSE!");
@@ -78,13 +78,13 @@ function playRound(playerSelection) {
             console.log("LOSE!");
             computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "LOSE!";
         }
         else if (computerSelection === "paper") {
             console.log("WIN!");
             playerScore++;
             game(playerScore, computerScore);
-            return;
+            return "WIN!";
         }
         else {
             console.log("DRAW!");
@@ -113,7 +113,7 @@ function game(playerScore, computerScore) {
             return;
         }
         else { 
-            console.log("DRAW!");
+            console.log("GAME DRAW!");
             return;
         }
     }
@@ -123,3 +123,4 @@ let playerSelection = prompt("Rock, Paper, or Scissors?");
 const computerSelection = getComputerChoice();
 const playerSelectionLowercase = playerSelection;
 console.log(playRound(playerSelection, computerSelection));
+console.log(playerScore, computerScore);
