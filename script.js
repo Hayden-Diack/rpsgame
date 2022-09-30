@@ -1,34 +1,25 @@
+
+
+
 function getComputerChoice(compChoice) {
     // generate computer entries
     let choiceNum = Math.floor(Math.random()*3) + 1;
     if (choiceNum == "1") {
-        console.log(choiceNum);
+        console.log(choiceNum, " rock");
         return "rock";
     }
     else if (choiceNum == "2") {
-        console.log(choiceNum);
+        console.log(choiceNum, " paper");
         return "paper";
     }
     else { 
-        console.log(choiceNum);
+        console.log(choiceNum, " scissors");
         return "scissors";
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
     console.log(playerSelection);
-    console.log(computerSelection);
-    // main computer function
-    if (computerSelection == "rock") {
-        return;
-    }
-    else if (computerSelection == "paper") {
-        return;
-    }
-    else if (computerSelection == "scissors") {
-        return;
-    }
-
     let playerSelectionString = String(playerSelection);
     let playerSelectionLowercase = playerSelectionString.toLowerCase();
     // If player chooses rock
@@ -50,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
             console.log("WIN!");
             playerScore++;
             game(playerScore, computerScore);
-            return;
+            return "WIN!";
         }
     }
     // if player chooses paper
@@ -72,7 +63,7 @@ function playRound(playerSelection, computerSelection) {
             console.log("LOSE!");
             computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "LOSE!";
         }
     }
     // if player chooses scissors
@@ -92,9 +83,9 @@ function playRound(playerSelection, computerSelection) {
         else {
             console.log("DRAW!");
             playerScore++;
-            computerScore+;
+            computerScore++;
             game(playerScore, computerScore);
-            return;
+            return "DRAW!";
         }
     }
     // if player inputs something silly
@@ -124,4 +115,5 @@ function game(playerScore, computerScore) {
 
 let playerSelection = prompt("Rock, Paper, or Scissors?");
 const computerSelection = getComputerChoice();
+const playerSelectionLowercase = playerSelection;
 console.log(playRound(playerSelection, computerSelection));
