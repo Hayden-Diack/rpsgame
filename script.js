@@ -31,11 +31,45 @@ function playRound(playerSelection, computerSelection) {
 
     let playerSelectionString = String(playerSelection);
     let playerSelectionLowercase = playerSelectionString.toLowerCase();
-// If player chooses rock
+    // If player chooses rock
     if (playerSelectionLowercase === "rock") {
         if (computerSelection === "rock") {
             console.log("DRAW!");
             playerScore++;
+            computerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else if (computerSelection === "paper") {
+            console.log("LOSE!");
+            computerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else {
+            console.log("WIN!");
+            playerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+    }
+    // if player chooses paper
+    else if (playerSelectionLowercase === "paper") {
+        if (computerSelection === "rock") {
+            console.log("WIN!");
+            playerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else if (computerSelection === "paper") {
+            console.log("DRAW!");
+            playerScore++;
+            computerScore++;
+            game(playerScore, computerScore);
+            return;
+        }
+        else {
+            console.log("LOSE!");
             computerScore++;
             game(playerScore, computerScore);
             return;
@@ -60,8 +94,6 @@ function game(playerScore, computerScore) {
     }
 }
 
-
-const playerSelection = "paper";
+let playerSelection = prompt("Rock, Paper, or Scissors?");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
-
