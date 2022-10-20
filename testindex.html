@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="teststyles.css" rel="stylesheet">
+    <script src="testscript.js" defer></script>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors!</h1>
+    <div class="selections">
+        <button class="selection" data-selection="paper">Paper</button>
+        <button class="selection" data-selection="scissors">Scissors</button>
+        <button class="selection" data-selection="rock">Rock</button>
+    </div>
+    <p></p>
+    <div class="results">
+        <div>you<span class="result-score" data-your-score>0</span></div>
+        <div data-final-column>computer<span class="result-score" data-computer-score>0</span></div>
+    </div>
+
+</body>
+</html>
+
+
+<!-- pseudo code
+the game is to play against the computer, using the console to begin with as ill add gui later. 
+start with function 
+getComputerChoice to select a random output, rock, paper, scissors - this will make the pc play
+
+playerSelection takes the element submitted by user, prompt()
+and compares it to computerSelection
+return string to declare winner eg "You lose! Paper beats Rock"
+(make player selection case insensitive)
+
+make new function called game() inside this create playRound()
+
+keep score
+
+best of 5
+
+
+
+-->
