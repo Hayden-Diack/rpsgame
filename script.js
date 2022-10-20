@@ -1,53 +1,69 @@
-// global variables
 let playerScore = 0;
-
 let computerScore = 0;
+let game = 0;
 
-let gamesPlayed = 0;
-
-
+let playerSelection;
 
 function getComputerChoice() {
-    // generate computer entries
-    let choiceNum = Math.floor(Math.random()*3) + 1;
+        // generate computer entries
+    const choiceNum = Math.floor(Math.random()*3) + 1;
     if (choiceNum == "1") {
-        console.log(choiceNum, " rock");
+        console.log("computer has chosen");
         return "rock";
     }
     else if (choiceNum == "2") {
-        console.log(choiceNum, " paper");
+        console.log("computer has chosen");
         return "paper";
     }
     else { 
-        console.log(choiceNum, " scissors");
+        console.log("computer has chosen");
         return "scissors";
     }
 }
 
+// buttons
+const paperbtn = document.querySelector('#paperbtn');
+paperbtn.addEventListener('click', () => {
+    playRound(playerSelection = 'paper');
+
+    return
+});
+
+const scissorsbtn = document.querySelector('#scissorsbtn');
+scissorsbtn.addEventListener('click', () => {
+    playRound(playerSelection = 'scissors');
+
+    return
+});
+
+const rockbtn = document.querySelector('#rockbtn');
+rockbtn.addEventListener('click', () => {
+    playRound(playerSelection = 'rock');
+
+    return
+});
+
+// playRound
 function playRound(playerSelection) {
     console.log(playerSelection);
+       
     let playerSelectionString = String(playerSelection);
     let playerSelectionLowercase = playerSelectionString.toLowerCase();
     // If player chooses rock
     if (playerSelectionLowercase === "rock") {
         if (computerSelection === "rock") {
             console.log("DRAW!");
-            playerScore++;
-            computerScore++;
-            game(playerScore, computerScore);
-            return "DRAW!";
+            return "DRAW!" && console.log(playerScore, computerScore);
         }
         else if (computerSelection === "paper") {
             console.log("LOSE!");
             computerScore++;
-            game(playerScore, computerScore);
-            return "LOSE!";
+            return "LOSE!" && console.log(playerScore, computerScore);
         }
         else {
             console.log("WIN!");
             playerScore++;
-            game(playerScore, computerScore);
-            return "WIN!";
+            return "WIN!" && console.log(playerScore, computerScore);
         }
     }
     // if player chooses paper
@@ -55,21 +71,16 @@ function playRound(playerSelection) {
         if (computerSelection === "rock") {
             console.log("WIN!");
             playerScore++;
-            game(playerScore, computerScore);
-            return "WIN!";
+            return "WIN!" && console.log(playerScore, computerScore);
         }
         else if (computerSelection === "paper") {
             console.log("DRAW!");
-            playerScore++;
-            computerScore++;
-            game(playerScore, computerScore);
-            return "DRAW!";
+            return "DRAW!" && console.log(playerScore, computerScore);
         }
         else {
             console.log("LOSE!");
             computerScore++;
-            game(playerScore, computerScore);
-            return "LOSE!";
+            return "LOSE!" && console.log(playerScore, computerScore);
         }
     }
     // if player chooses scissors
@@ -77,50 +88,24 @@ function playRound(playerSelection) {
         if (computerSelection === "rock") {
             console.log("LOSE!");
             computerScore++;
-            game(playerScore, computerScore);
-            return "LOSE!";
+            return "LOSE!" && console.log(playerScore, computerScore);
         }
         else if (computerSelection === "paper") {
             console.log("WIN!");
             playerScore++;
-            game(playerScore, computerScore);
-            return "WIN!";
+            return "WIN!" && console.log(playerScore, computerScore);
         }
         else {
             console.log("DRAW!");
-            playerScore++;
-            computerScore++;
-            game(playerScore, computerScore);
-            return "DRAW!";
+            return "DRAW!" && console.log(playerScore, computerScore);
         }
     }
     // if player inputs something silly
     else {
         console.log("Invalid Entry, Please try again.");
-        game(playerScore, computerScore);
         return;
     }
 }
 
-function game(playerScore, computerScore) {
-    if (playerScore == 5 || computerScore == 5) {
-        if (playerScore > computerScore) {
-            console.log("YOU WIN!");
-            return;
-        }
-        else if (playerScore < computerScore) {
-            console.log("YOU LOSE!");
-            return;
-        }
-        else { 
-            console.log("GAME DRAW!");
-            return;
-        }
-    }
-}
-
-let playerSelection = prompt("Rock, Paper, or Scissors?");
 const computerSelection = getComputerChoice();
-const playerSelectionLowercase = playerSelection;
-console.log(playRound(playerSelection, computerSelection));
 console.log(playerScore, computerScore);
