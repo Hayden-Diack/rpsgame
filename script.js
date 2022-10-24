@@ -1,7 +1,7 @@
-let tempCompChoice = {Value: ""}; // compChoice
-let getComputerChoice = 0; // compchoiceint
+let tempCompChoice = {Value: ""}; 
+let getComputerChoice = 0; 
 let compChoice;
-let playerSelection; // player choice
+let playerSelection; 
 const buttons = document.querySelectorAll('.btn');
 
 let playerScore = 0;
@@ -34,8 +34,6 @@ function computerPlay() {
     return choiceNum;
 }
 
-
-
 // buttons
 buttons.forEach((button)=>{button.addEventListener('click',()=>{
     playerSelection = button.id;
@@ -54,7 +52,6 @@ buttons.forEach((button)=>{button.addEventListener('click',()=>{
     })
 });
 
-
 // playRound
 function playRound() {
     let playerSelectionString = String(playerSelection);
@@ -63,70 +60,71 @@ function playRound() {
     // If player chooses rock
     if (playerSelectionLowercase === "rock") {
         if (tempCompChoice.Value === "rock") {
-            console.log("DRAW!");
+            //console.log("DRAW!");
             output.textContent = `Its a tie! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
-            return "DRAW!" && console.log(playerScore, computerScore);
+            return
         }
         else if (tempCompChoice.Value === "paper") {
-            console.log("LOSE!");
+            //console.log("LOSE!");
             output.textContent = `You lost! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             computerScore++;
-            return "LOSE!" && console.log(playerScore, computerScore);
+            return
         }
         else {
-            console.log("WIN!");
+            //console.log("WIN!");
             output.textContent = `You won! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             playerScore++;
-            return "WIN!" && console.log(playerScore, computerScore);
+            return
         }
     }
     // if player chooses paper
     else if (playerSelectionLowercase === "paper") {
         if (tempCompChoice.Value === "rock") {
-            console.log("WIN!");
+            //console.log("WIN!");
             output.textContent = `You won! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             playerScore++;
-            return "WIN!" && console.log(playerScore, computerScore);
+            return
         }
         else if (tempCompChoice.Value === "paper") {
-            console.log("DRAW!");
+            //console.log("DRAW!");
             output.textContent = `Its a tie! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
-            return "DRAW!" && console.log(playerScore, computerScore);
+            return
         }
         else {
-            console.log("LOSE!");
+            //console.log("LOSE!");
             output.textContent = `You lost! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             computerScore++;
-            return "LOSE!" && console.log(playerScore, computerScore);
+            return
         }
     }
     // if player chooses scissors
     else if (playerSelectionLowercase === "scissors") {
         if (tempCompChoice.Value === "rock") {
-            console.log("LOSE!");
+            //console.log("LOSE!");
             output.textContent = `You lost! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             computerScore++;
-            return "LOSE!" && console.log(playerScore, computerScore);
+            return
         }
         else if (tempCompChoice.Value === "paper") {
-            console.log("WIN!");
+            //console.log("WIN!");
             output.textContent = `You won! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
             playerScore++;
-            return "WIN!" && console.log(playerScore, computerScore);
+            return
         }
         else {
-            console.log("DRAW!");
+            //console.log("DRAW!");
             output.textContent = `Its a tie! You chose ${playerSelectionLowercase} and The computer chose ${tempCompChoice.Value}`;
-            return "DRAW!";
+            return
         }
     }
     // if player inputs something silly
     else {
         console.log("Invalid Entry, Please try again.");
-        return;
+        return
     }
 }
 
+// score tracker
 function playGame() {
     output.textContent = "Choose Rock, Paper or Scissors";
     playRound();
